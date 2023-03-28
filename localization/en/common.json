@@ -1,0 +1,9 @@
+{
+    "description": "i18n reproduction of hard refresh",
+    "thanks": "Thank you.",
+    "nav": {
+        "about": "About",
+        "contact": "Contact",
+        "home": "Homepage"
+    }
+}
