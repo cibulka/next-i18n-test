@@ -54,19 +54,40 @@ export function Nav(props: { locale: string }) {
       <div className="flex justify-center border-t border-b border-neutral-500 py-2">
         <LocaleSwitcher />
       </div>
-      <ul className="flex w-full justify-center gap-4 py-2">
-        {workingLinks.map((link) => (
-          <li key={link.href}>
-            {getIsActivePath(link.path) ? (
-              <strong className="font-bold">{link.label}</strong>
-            ) : (
-              <Link href={link.href} className="text-blue-500 underline">
-                {link.label}
-              </Link>
-            )}
-          </li>
-        ))}
-      </ul>
+      <div className="table ml-auto mr-auto">
+        <div className="table-row">
+          <div className="table-cell pr-4 font-bold">👍 without locale</div>
+          <ul className="flex w-full justify-center gap-4 py-2">
+            {workingLinks.map((link) => (
+              <li key={link.href}>
+                {getIsActivePath(link.path) ? (
+                  <strong className="font-bold">{link.label}</strong>
+                ) : (
+                  <Link href={link.href} className="text-blue-500 underline">
+                    {link.label}
+                  </Link>
+                )}
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div className="table-row">
+          <div className="table-cell pr-4 font-bold">👎 with locale</div>
+          <ul className="flex w-full justify-center gap-4 py-2">
+            {notWorkingLinks.map((link) => (
+              <li key={link.href}>
+                {getIsActivePath(link.path) ? (
+                  <strong className="font-bold">{link.label}</strong>
+                ) : (
+                  <Link href={link.href} className="text-blue-500 underline">
+                    {link.label}
+                  </Link>
+                )}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
     </header>
   );
 }
