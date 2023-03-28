@@ -1,8 +1,8 @@
-import { AllTypes } from 'contentlayer/generated';
+import { PropsWithChildren } from 'react';
 
 import { Contact } from '@/blocks/contact/Contact';
 import { LinkLocalized } from '@/blocks/link-localized/LinkLocalized';
-import { PropsWithChildren } from 'react';
+import { AllTypes } from '@/server/getDocument';
 
 export function useComponents(locale: string, post?: AllTypes) {
   return {

@@ -1,6 +1,5 @@
-import { allPages } from 'contentlayer/generated';
-
 import { Head } from '@/components/head/Head';
+import { allPages } from '@/constants/content';
 import { getDocument } from '@/server/getDocument';
 
 export default async function HeadPage(props: { params: { locale: string; slug: string } }) {

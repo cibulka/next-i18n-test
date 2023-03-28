@@ -1,8 +1,8 @@
-import { allPages } from 'contentlayer/generated';
 import { notFound } from 'next/navigation';
 
-import { MdxReader } from '@/components/md-reader/MdxReader';
-import { getDocument } from '@/server/getDocument';
+import { MdxReader } from '@/components/mdx-reader/MdxReader';
+import { allPages } from '@/constants/content';
+import { Page, getDocument } from '@/server/getDocument';
 import { Locale } from '@/types';
 
 export default async function Page(props: { params: { locale: Locale } }) {

@@ -1,16 +1,29 @@
-import { AllTypes, Page } from 'contentlayer/generated';
-
 import { LOCALE_DEFAULT } from '@/constants/i18n';
+
+export interface AllTypes {
+  slug: string;
+  title: string;
+  content: string;
+  locale: string;
+  type: string;
+}
+
+export interface Page extends AllTypes {
+  emoji: string;
+  type: 'Page';
+}
 
 function mergeArticleMeta(postDefault: AllTypes, postTranslated: AllTypes | null) {
   if (!postTranslated) return postDefault;
   if (postTranslated.locale === postDefault.locale) return postTranslated;
 
   let result;
+  let postDefaultCasted;
   switch (postDefault.type) {
     case 'Page':
+      postDefaultCasted = postDefault as Page;
       result = postTranslated as Page;
-      if (!result.emoji) result.emoji = postDefault.emoji;
+      if (!result.emoji) result.emoji = postDefaultCasted.emoji;
       return result;
     default:
       return postTranslated;
