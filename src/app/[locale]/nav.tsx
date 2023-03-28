@@ -12,7 +12,7 @@ export function Nav(props: { locale: string }) {
   const locale = useLocale(); // => en | ru | ua | fr
   const getIsActivePath = useIsActivePath();
 
-  const workingLinks = [
+  const links = [
     {
       href: '/',
       path: '',
@@ -30,24 +30,6 @@ export function Nav(props: { locale: string }) {
     },
   ];
 
-  const notWorkingLinks = [
-    {
-      href: `/${locale}`,
-      path: '',
-      label: t('nav.home'),
-    },
-    {
-      href: `/${locale}/about`,
-      path: 'about',
-      label: t('nav.about'),
-    },
-    {
-      href: `/${locale}/contact`,
-      path: 'contact',
-      label: t('nav.contact'),
-    },
-  ];
-
   return (
     <header className="py-4">
       <h1 className="text-2xl text-center font-bold mb-4">Locales in URLs lead to hard refresh</h1>
@@ -56,36 +38,21 @@ export function Nav(props: { locale: string }) {
       </div>
       <div className="table ml-auto mr-auto">
         <div className="table-row">
-          <div className="table-cell pr-4 font-bold">👍 without locale</div>
-          <ul className="flex w-full justify-center gap-4 py-2">
-            {workingLinks.map((link) => (
-              <li key={link.href}>
-                {getIsActivePath(link.path) ? (
-                  <strong className="font-bold">{link.label}</strong>
-                ) : (
-                  <Link href={link.href} className="text-blue-500 underline">
-                    {link.label}
-                  </Link>
-                )}
-              </li>
-            ))}
-          </ul>
-        </div>
-        <div className="table-row">
-          <div className="table-cell pr-4 font-bold">👎 with locale</div>
-          <ul className="flex w-full justify-center gap-4 py-2">
-            {notWorkingLinks.map((link) => (
-              <li key={link.href}>
-                {getIsActivePath(link.path) ? (
-                  <strong className="font-bold">{link.label}</strong>
-                ) : (
-                  <Link href={link.href} className="text-blue-500 underline">
-                    {link.label}
-                  </Link>
-                )}
-              </li>
-            ))}
-          </ul>
+          <div className="table-cell">
+            <ul className="flex w-full justify-center gap-4 py-2">
+              {links.map((link) => (
+                <li key={link.href}>
+                  {getIsActivePath(link.path) ? (
+                    <strong className="font-bold">{link.label}</strong>
+                  ) : (
+                    <Link href={link.href} className="text-blue-500 underline">
+                      {link.label}
+                    </Link>
+                  )}
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       </div>
     </header>
