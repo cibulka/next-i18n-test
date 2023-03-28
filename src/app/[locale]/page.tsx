@@ -1,7 +1,7 @@
-import { allPages } from 'contentlayer/generated';
 import { notFound } from 'next/navigation';
 
-import { MdxReader } from '@/components/md-reader/MdxReader';
+import { MdxReader } from '@/components/mdx-reader/MdxReader';
+import { allPages } from '@/constants/content';
 import { getDocument } from '@/server/getDocument';
 import { Locale } from '@/types';
 

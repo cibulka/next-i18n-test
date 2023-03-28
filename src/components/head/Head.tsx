@@ -1,6 +1,5 @@
-import { AllTypes } from 'contentlayer/generated';
-
 import { useTranslationServer } from '@/i18n/useTranslationServer';
+import { AllTypes } from '@/server/getDocument';
 import { Locale } from '@/types';
 
 export async function Head(props: { locale: Locale; post?: AllTypes | null; title?: string }) {
